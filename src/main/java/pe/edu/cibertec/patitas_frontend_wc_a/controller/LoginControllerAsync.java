@@ -3,6 +3,7 @@ package pe.edu.cibertec.patitas_frontend_wc_a.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
+import pe.edu.cibertec.patitas_frontend_wc_a.client.AutenticacionClient;
 import pe.edu.cibertec.patitas_frontend_wc_a.dto.LoginRequestDTO;
 import pe.edu.cibertec.patitas_frontend_wc_a.dto.LoginResponseDTO;
 import pe.edu.cibertec.patitas_frontend_wc_a.dto.SignOutRequestDTO;
@@ -17,6 +18,9 @@ public class LoginControllerAsync {
 
     @Autowired
     WebClient webClientAutenticacion;
+
+    @Autowired
+    AutenticacionClient autenticacionClient;
 
     @PostMapping("/autenticar-async")
     public Mono<LoginResponseDTO> autenticar(@RequestBody LoginRequestDTO loginRequestDTO) {
